@@ -3,6 +3,7 @@ import os
 from abc import ABC, abstractmethod
 from subprocess import PIPE, CalledProcessError, run
 from tempfile import NamedTemporaryFile, mkdtemp, mkstemp
+from django.conf import settings
 
 logger = logging.getLogger(__name__)
 
@@ -58,7 +59,7 @@ class BaseCompiler(ABC):
 
 
 class LatexCompiler(BaseCompiler):
-    build_engine = 'xelatex'
+    build_engine = getattr(settings, 'DPP_LATEX_ENGINE', 'xelatex')
 
     def clean_string(self):
         clean_string = self.template_string.replace('ـ', '-')
@@ -83,7 +84,7 @@ class LatexCompiler(BaseCompiler):
 
 
 class ChromeCompiler(BaseCompiler):
-    build_engine = 'google-chrome-stable'
+    build_engine = getattr(settings, 'DPP_CHROME_ENGINE', 'google-chrome-stable')
     template_file_suffix = '.html'
 
     def get_compile_command(self) -> str:

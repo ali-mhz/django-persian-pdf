@@ -145,3 +145,7 @@ Here is an example of latex template for a given view:
 
     \end{document}
 
+Notes on Fork Changes
+----------------
+
+You can specify the path to build engine in your project settings using DPP_LATEX_ENGINE and DPP_CHROME_ENGINE variables

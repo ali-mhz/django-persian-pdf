@@ -19,3 +19,9 @@ Changelog
 
 * Update base view class names
 * Add latex example to documents
+
+0.12 (2025-06-03)
+-----------------
+
+* Add DPP_LATEX_ENGINE setting variable
+* Add DPP_CHROME_ENGINE setting variable
